@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box } from "@mui/material";
 import slides from "@/componants/data/cariosolData.json"
+import Image from 'next/image';
 
 
 interface CariosolData {
@@ -18,7 +19,7 @@ const ProjectBlock: React.FC<ProjectBlockProps> = ({ data }) => {
             <Box className="ProjectContainer" sx={{ width: "63%", height: "100%", display: "flex", overflow: "auto", gap: 5, paddingBottom: 2, justifyContent: "center" }}>
                 {/* Render data items here */}
                 {data.map((slide, index) => (
-                    <img key={index} src={slide.src} alt={slide.alt} />
+                    <Image key={index} src={slide.src} alt={slide.alt} width={500} height={300} />
                 ))}
             </Box>
         </Box>
