@@ -25,7 +25,6 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [images.length]);
 
-
   return (
     <Container maxWidth={false} disableGutters>
       <NavBar />
@@ -34,7 +33,7 @@ export default function Home() {
       {/* Intro */}
       <Box sx={{ display: "flex", flexDirection: "column", marginLeft: { xs: "none", md: 15 }, marginTop: { xs: 8, md: 12 }, width: { xs: "100%", md: "35%", lg: "40%" }, alignItems: { xs: "center", md: "start" }, justifyContent: { xs: "center", md: "left" }, textAlign: { xs: "center", md: "start" }, gap: { xs: 1.5, md: 1 }, }}>
         <Typography variant="h2" className={itim.className} sx={{ color: "#FFFFFF" }}>Hey, <motion.span className={itim.className} initial={{ color: "#FFFFFF" }} animate={{ color: "#6CA2A6", transition: { delay: 0.5, duration: 1, ease: "easeIn" } }}>There!</motion.span></Typography>
-        <Typography className={mirza.className} sx={{ color: "#FFFFFF", fontSize: { xs: 18, md: 20 }, marginX: { xs: 2, md: 0 } }}>I'm Parth, a full stack developer skilled in front-end and back-end technologies. I create dynamic applications, focusing on seamless user experiences. In my spare time, I enjoy developing games with the Godot Engine. Proficient in Python, Java, and other languages, with a strong interest in React, JavaScript, and clean code.</Typography>
+        <Typography className={mirza.className} sx={{ color: "#FFFFFF", fontSize: { xs: 18, md: 20 }, marginX: { xs: 2, md: 0 } }}>I&apos;m Parth, a full stack developer skilled in front-end and back-end technologies. I create dynamic applications, focusing on seamless user experiences. In my spare time, I enjoy developing games with the Godot Engine. Proficient in Python, Java, and other languages, with a strong interest in React, JavaScript, and clean code.</Typography>
         <Box sx={{ boxShadow: 2, display: { xs: "none", md: "flex" }, position: "absolute", right: 100, width: { md: "40%", lg: "33%" }, height: 250, bgcolor: "#3F3F3F", borderRadius: 5, flexDirection: "column" }}>
           <Box sx={{ display: "flex", width: "100%", marginTop: 1, marginLeft: 1, gap: 1 }}>
             <Box sx={{ width: 15, height: 15, bgcolor: "#FF9393", borderRadius: "50%" }}></Box>
@@ -46,7 +45,6 @@ export default function Home() {
         <BreathingLines top="25rem" right="0" time="2s" />
       </Box>
       {/*  */}
-
 
       {/* Skills */}
       <Typography component={motion.div} initial={{ opacity: 0 }} whileInView={{ opacity: 1, transition: { duration: 3 } }} variant="h3" className={itim.className} sx={{ position: "relative", marginLeft: 15, color: "#6CA2A6", marginTop: { xs: 15, md: 40 } }}>Skills</Typography>
