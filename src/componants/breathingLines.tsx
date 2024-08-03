@@ -53,7 +53,7 @@ const BreathingLines: React.FC<BreathingLinesProps> = ({
                 position: position,
                 width: { xs: "50%", md: width },
                 bgcolor: "#3F3F3F",
-                height: 5,
+                height: 4,
                 marginTop: top,
                 right: right,
                 left: left,
@@ -68,7 +68,7 @@ const BreathingLines: React.FC<BreathingLinesProps> = ({
                 sx={{
                     width: "100%",
                     height: "100%",
-                    background: 'linear-gradient(to right, #3F3F3F, #6FFFF6, #3F3F3F)',
+                    background: 'linear-gradient(to right, #3F3F3F, #6FFFF6, #00F7F7)',
                 }}
                 initial={animationProps.initial}
                 animate={animationProps.animate}

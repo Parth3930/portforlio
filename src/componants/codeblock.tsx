@@ -14,7 +14,7 @@ const user: User = {
 
 const customStyle = {
     'code[class*="language-"]': {
-        color: "#CFFCFF",
+        color: "#6CA2A6",
         background: "transparent",
         fontFamily: 'Courier New, Courier, monospace',
         fontSize: '1em',
@@ -54,7 +54,7 @@ const CodeBlock = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
-            style={{ marginTop: 3, color: '#ffffff', height: '100%', width: '100%', display: "flex", justifyContent: "center", }}
+            style={{ marginTop: 3, height: '100%', width: '100%', display: "flex", justifyContent: "center", }}
         >
             <SyntaxHighlighter language="typescript" style={{ ...coy, ...customStyle }}>
                 {displayedCode}
