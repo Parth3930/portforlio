@@ -51,7 +51,7 @@ const BreathingLines: React.FC<BreathingLinesProps> = ({
             component={motion.div}
             sx={{
                 position: position,
-                width: { xs: "50%", md: width },
+                width: width,
                 bgcolor: "#3F3F3F",
                 height: 4,
                 marginTop: top,

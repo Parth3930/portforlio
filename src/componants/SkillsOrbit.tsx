@@ -75,7 +75,7 @@ export default function SkillsOrbit() {
     return (
         <Box component={motion.div}
             sx={{
-                bgcolor: "#1E1E1E",
+                bgcolor: "#181818",
                 width: { xs: "40%", md: "25%", lg: "20%" },
                 height: { xs: "25%", md: "40%", lg: "45%" },
                 borderRadius: "50%",
@@ -83,6 +83,7 @@ export default function SkillsOrbit() {
                 justifyContent: "center",
                 alignItems: "center",
                 position: "relative",
+                boxShadow: 5,
                 border: 2,
             }}
             animate={{ borderColor: ["#3F3F3F", "#6CA2A6", "#00F7F7", "#6CA2A6", "#3F3F3F"] }} transition={{
