@@ -8,6 +8,8 @@ import SkillsOrbit from "@/componants/SkillsOrbit";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRef, useState } from "react";
+import Projects from "@/componants/projects";
+import ProjectsAccordion from "@/componants/projectAccordion";
 
 export default function Home() {
   const [Images, setImages] = useState([{
@@ -60,17 +62,12 @@ export default function Home() {
       <Box sx={{ width: "100%", height: 350, display: "flex", marginTop: { xs: -5, md: 5, lg: 10 }, flexDirection: "column" }}>
         <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
           <Box sx={{ display: "flex", bgcolor: "#181818", boxShadow: 5, height: 50, borderRadius: 2, p: 1, justifyContent: "center", alignItems: "center" }}>
-            <Typography className={itim.className} sx={{ color: "white", fontSize: 25 }}>My <span style={{ color: "#6CA2A6" }}>Projects</span>
+            <Typography className={itim.className} sx={{ color: "white", fontSize: 25 }}>My <span style={{ color: "#6CA2A6" }} ref={projectsRef}>Projects</span>
             </Typography>
           </Box>
         </Box>
-        <Box sx={{ width: "100%", display: "flex", justifyContent: "center", alignItems: "center" }} ref={projectsRef}>
-          <BreathingLines rotate={90} top={35.3} width={282} />
-          <BreathingLines rotate={0} top={10} width={{ xs: 100, md: 150, lg: 200 }} marginLeft={{ xs: 13, lg: 25 }} time="0.2s" />
-          <BreathingLines rotate={0} top={25} width={{ xs: 100, md: 150, lg: 200 }} marginRight={{ xs: 13, lg: 25 }} time="0.3s" direction="right-to-left" />
-          <BreathingLines rotate={0} top={40} width={{ xs: 100, md: 150, lg: 200 }} marginLeft={{ xs: 13, lg: 25 }} time="0.4s" />
-          <BreathingLines rotate={0} top={55} width={{ xs: 100, md: 150, lg: 200 }} marginRight={{ xs: 13, lg: 25 }} time="0.6s" direction="right-to-left" />
-        </Box>
+        <Projects />
+        <ProjectsAccordion />
       </Box>
     </Container >
   );
