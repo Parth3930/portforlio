@@ -23,10 +23,10 @@ export default function Home() {
         </Typography>
         <Box sx={{ width: "100%", height: 50, display: "flex", marginTop: 1, justifyContent: { xs: "center", md: "start" } }}>
           <Box sx={{ flexDirection: "row", display: "flex", gap: 2 }}>
-            <Image src="/socials/Github.png" width={45} height={45} alt="Github" style={{ cursor: "pointer" }}></Image>
-            <Image src="/socials/Discord.png" width={45} height={45} alt="Discord" style={{ cursor: "pointer" }}></Image>
-            <Image src="/socials/Gmail.png" width={45} height={45} alt="Gmail" style={{ cursor: "pointer" }}></Image>
-            <Image src="/socials/Linkedin.png" width={45} height={45} alt="Linkedin" style={{ cursor: "pointer" }}></Image>
+            <Image src="/socials/Github.png" width={45} height={45} alt="Github" style={{ cursor: "pointer" }} onClick={() => window.open("https://github.com/ItzGG", "_blank")}></Image>
+            <Image src="/socials/Discord.png" width={45} height={45} alt="Discord" style={{ cursor: "pointer" }} onClick={() => window.open("https://discord.gg/sauHKcy2Zc", "_blank")}></Image>
+            <Image src="/socials/Gmail.png" width={45} height={45} alt="Gmail" style={{ cursor: "pointer" }} onClick={() => window.open("mailto:sharmaparth.developer@gmail.com", "_blank")}></Image>
+            <Image src="/socials/Linkedin.png" width={45} height={45} alt="Linkedin" style={{ cursor: "pointer" }} onClick={() => window.open("https://www.linkedin.com/in/parth-sharma-029537321/", "_blank")}></Image>
           </Box>
         </Box>
         <Box sx={{ boxShadow: 5, border: 2, borderColor: "#506769", display: { xs: "none", md: "flex" }, position: "absolute", right: 100, width: { md: "40%", lg: "33%" }, height: 250, bgcolor: "#181818", borderRadius: 5, flexDirection: "column" }}>

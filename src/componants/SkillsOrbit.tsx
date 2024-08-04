@@ -148,6 +148,7 @@ export default function SkillsOrbit() {
                                     left: `calc(50% + ${x}px)`,
                                     transform: "translate(-50%, -50%)",
                                     cursor: "pointer",
+                                    userSelect: "none",
                                 }}
                             />
                         );
