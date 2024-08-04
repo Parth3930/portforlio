@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import { mirza, itim } from "./fonts/fonts";
-import React, { useState } from 'react';
+import React, { RefObject, useRef, useState } from 'react';
 
 const varients = {
     openTop: { y: 10, rotate: -50 },
@@ -10,8 +10,18 @@ const varients = {
     closed: {},
 }
 
-export default function Nav() {
+interface NavProps {
+    aboutRef: RefObject<HTMLDivElement>;
+    skillsRef: RefObject<HTMLDivElement>;
+    projectsRef: RefObject<HTMLDivElement>;
+}
+
+export default function Nav({ aboutRef, skillsRef, projectsRef }: NavProps) {
     const [clicked, setClicked] = useState(false);
+
+    const scrollToElement = (ref: RefObject<HTMLDivElement>) => {
+        ref.current?.scrollIntoView({ behavior: "smooth" });
+    };
 
     return (
         <Box component={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, ease: "easeIn" }} sx={{ display: "flex", position: "relative", width: "100%", gap: 3, height: 150, alignItems: "center", color: "#A0A0A0", justifyContent: "space-between", userSelect: "none", }}>
@@ -19,9 +29,9 @@ export default function Nav() {
                 <Typography className={itim.className} variant="h3">P</Typography>
             </Box>
             <Box sx={{ display: "flex", gap: 3, marginRight: 5 }}>
-                <Typography variant="h5" className={mirza.className} sx={{ cursor: "pointer", transition: "color 0.3s ease-in", ":hover": { color: "#75A8AB" }, display: { xs: "none", md: "block" } }}>About</Typography>
-                <Typography variant="h5" className={mirza.className} sx={{ cursor: "pointer", transition: "color 0.3s ease-in", ":hover": { color: "#75A8AB" }, display: { xs: "none", md: "block" } }}>Skills</Typography>
-                <Typography variant="h5" className={mirza.className} sx={{ cursor: "pointer", transition: "color 0.3s ease-in", ":hover": { color: "#75A8AB" }, display: { xs: "none", md: "block" } }}>Projects</Typography>
+                <Typography variant="h5" className={mirza.className} sx={{ cursor: "pointer", transition: "color 0.3s ease-in", ":hover": { color: "#75A8AB" }, display: { xs: "none", md: "block" } }} onClick={() => scrollToElement(aboutRef)}>About</Typography>
+                <Typography variant="h5" className={mirza.className} sx={{ cursor: "pointer", transition: "color 0.3s ease-in", ":hover": { color: "#75A8AB" }, display: { xs: "none", md: "block" } }} onClick={() => scrollToElement(skillsRef)}>Skills</Typography>
+                <Typography variant="h5" className={mirza.className} sx={{ cursor: "pointer", transition: "color 0.3s ease-in", ":hover": { color: "#75A8AB" }, display: { xs: "none", md: "block" } }} onClick={() => scrollToElement(projectsRef)}>Projects</Typography>
                 <Box sx={{ display: { xs: "block", md: "none" }, width: 40, height: 40 }} onClick={() => setClicked(!clicked)}>
                     <Box component={motion.div} sx={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", gap: 0.9, justifyContent: "center", alignItems: "center", "&:hover .line": { backgroundColor: "#75A8AB" } }}>
                         <Box component={motion.div} className="line" sx={{ width: "100%", height: 4, bgcolor: "#A0A0A0" }} variants={varients} animate={clicked ? "openTop" : "closed"} />
@@ -30,9 +40,9 @@ export default function Nav() {
                     </Box>
                     {clicked && <Box component={motion.div} initial={{ y: -200 }} animate={{ y: -96 }} sx={{ width: '100%', position: "absolute", left: 0, height: 40, }}>
                         <Box sx={{ display: "flex", width: "100%", gap: 3, height: "100%", color: "#A0A0A0", userSelect: "none", justifyContent: "center", alignItems: "center" }}>
-                            <Typography variant="h5" className={mirza.className} sx={{ cursor: "pointer", transition: "color 0.3s ease-in", ":hover": { color: "#75A8AB" } }}>About</Typography>
-                            <Typography variant="h5" className={mirza.className} sx={{ cursor: "pointer", transition: "color 0.3s ease-in", ":hover": { color: "#75A8AB" } }}>Projects</Typography>
-                            <Typography variant="h5" className={mirza.className} sx={{ cursor: "pointer", transition: "color 0.3s ease-in", ":hover": { color: "#75A8AB" } }}>Skills</Typography>
+                            <Typography variant="h5" className={mirza.className} sx={{ cursor: "pointer", transition: "color 0.3s ease-in", ":hover": { color: "#75A8AB" } }} onClick={() => scrollToElement(aboutRef)}>About</Typography>
+                            <Typography variant="h5" className={mirza.className} sx={{ cursor: "pointer", transition: "color 0.3s ease-in", ":hover": { color: "#75A8AB" } }} onClick={() => scrollToElement(skillsRef)}>Skills</Typography>
+                            <Typography variant="h5" className={mirza.className} sx={{ cursor: "pointer", transition: "color 0.3s ease-in", ":hover": { color: "#75A8AB" } }} onClick={() => scrollToElement(projectsRef)}>Projects</Typography>
                         </Box>
                     </Box>}
                 </Box>
