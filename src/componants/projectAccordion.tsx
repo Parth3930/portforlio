@@ -1,12 +1,6 @@
-import React, { RefObject } from 'react';
-import { Box, Typography, Accordion, AccordionSummary, AccordionDetails, useMediaQuery, useTheme } from "@mui/material";
-import BreathingLines from './breathingLines'; // Adjust the import path as necessary
-
+import { Box, Typography, Accordion, AccordionSummary, AccordionDetails, useTheme } from "@mui/material";
 
 const ProjectsAccordion = () => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
     return (
       <Box
         sx={{
