@@ -7,7 +7,7 @@ const codeString = `
 const user: User = {
   name: 'Parth Sharma',
   age: 18,
-  email: 'sharmaparth3930@gmail.com',
+  email: 'sharmaparth.developer@gmail.com',
   country: 'India'
 };
 `;
