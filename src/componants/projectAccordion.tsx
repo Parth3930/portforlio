@@ -1,4 +1,5 @@
-import { Box, Typography, Accordion, AccordionSummary, AccordionDetails, useTheme } from "@mui/material";
+import React from 'react';
+import { Box, Typography, Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 
 const ProjectsAccordion = () => {
     return (
@@ -22,13 +23,7 @@ const ProjectsAccordion = () => {
         >
           <Accordion sx={{ bgcolor: "#181818" }}>
             <AccordionSummary>
-              <Typography
-                variant="h5"
-                sx={{ color: "white" }}
-                onClick={() => {
-                  window.open("https://secretscribbles.vercel.app/home");
-                }}
-              >
+              <Typography variant="h5" sx={{ color: "white" }}>
                 Secret Scribbles
               </Typography>
             </AccordionSummary>
@@ -37,80 +32,52 @@ const ProjectsAccordion = () => {
                 sx={{
                   width: "100%",
                   height: 400,
-                  backgroundImage: `url('/projects/Secrets.png')`,
+                  backgroundImage: `url('/projects/SecretsMob.png')`,
                   backgroundSize: "cover",
                   borderRadius: 1,
                   backgroundPosition: "center",
                 }}
               />
-            </AccordionDetails>
-          </Accordion>
-
-          <Accordion sx={{ bgcolor: "#181818" }}>
-            <AccordionSummary>
               <Typography
-                variant="h5"
-                sx={{ color: "white" }}
-                onClick={() => {
-                  window.open(
-                    "https://secretscribbles.vercel.app/homehttps://sharmachemical.netlify.app/"
-                  );
+                variant="body1"
+                sx={{
+                  marginTop: 2,
+                  color: "white", // White text color
+                  lineHeight: 1.5,
                 }}
               >
-                Ecommerce Web
+                <strong>Secret Scribbles</strong> - a platform designed for users to express their thoughts and ideas securely and in an organized manner. Create, manage, and share your notes seamlessly!
               </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Box
-                sx={{
-                  width: "100%",
-                  height: 200,
-                  backgroundImage: `url('/projects/store2.png')`,
-                  backgroundSize: "cover",
-                  borderRadius: 1,
-                  backgroundPosition: "center",
-                }}
-              />
             </AccordionDetails>
           </Accordion>
 
           <Accordion sx={{ bgcolor: "#181818" }}>
             <AccordionSummary>
               <Typography variant="h5" sx={{ color: "white" }}>
-                Discord.ide
+                Avina
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Box
                 sx={{
                   width: "100%",
-                  height: 200, // Set a fixed height for the image
-                  backgroundImage: `url('/projects/store3.png')`,
+                  height: 400,
+                  backgroundImage: `url('/projects/avinaMob.png')`,
                   backgroundSize: "cover",
                   borderRadius: 1,
                   backgroundPosition: "center",
                 }}
               />
-            </AccordionDetails>
-          </Accordion>
-
-          <Accordion sx={{ bgcolor: "#181818" }}>
-            <AccordionSummary>
-              <Typography variant="h5" sx={{ color: "white" }}>
-                Fitness App
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Box
+              <Typography
+                variant="body1"
                 sx={{
-                  width: "100%",
-                  height: 200, // Set a fixed height for the image
-                  backgroundImage: `url('/projects/store4.png')`,
-                  backgroundSize: "cover",
-                  borderRadius: 1,
-                  backgroundPosition: "center",
+                  marginTop: 2,
+                  color: "white", // White text color
+                  lineHeight: 1.5,
                 }}
-              />
+              >
+                <strong>Avina</strong> - a unified financial platform that helps users manage their money and make informed financial decisions. Explore various services offered and take control of your financial future!
+              </Typography>
             </AccordionDetails>
           </Accordion>
         </Box>
