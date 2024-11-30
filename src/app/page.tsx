@@ -25,10 +25,6 @@ export default function Home() {
   const projectsRef = useRef<HTMLDivElement>(null);
 
   return (
-    <>
-    <Head>
-      <meta name="google-site-verification" content="v3Iw5zKTvl4nmqMkG_re_zltWnSWFgLey9wODp6ZwVU" />
-    </Head>
     <Container maxWidth={false} disableGutters>
       <Nav aboutRef={aboutRef} skillsRef={skillsRef} projectsRef={projectsRef} />
       <BreathingLines top="0rem" right="none" time="0s" />
@@ -75,6 +71,5 @@ export default function Home() {
         <ProjectsAccordion />
       </Box>
     </Container >
-    </>
   );
 }
