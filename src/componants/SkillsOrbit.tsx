@@ -2,7 +2,6 @@ import { CSSProperties } from "react";
 import { motion } from "framer-motion";
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import { itim } from "./fonts/fonts";
-// Import react-icons (adjust icon choices as needed)
 import { FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaReact, FaJava, FaPython, FaDocker } from "react-icons/fa";
 import { SiTailwindcss, SiTypescript, SiExpress, SiVite, SiSupabase, SiVercel, SiPostgresql, SiUnrealengine } from "react-icons/si";
 
@@ -44,12 +43,6 @@ const orbitVariants = {
     },
 };
 
-// Define orbit radii for each breakpoint so that icons revolve outside the central container.
-// For large screens, subtract a few pixels (here 20) to bring the icons closer.
-const radiusDesktop = [230, 300]; // reduced from [250, 320]
-const radiusTablet = [200, 260];
-const radiusMobile = [150, 200];
-
 function getSkillPosition(
     index: number,
     totalSkills: number,
@@ -66,17 +59,19 @@ export default function SkillsOrbit() {
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
 
-    const radii = isMobile
-        ? radiusMobile
-        : isTablet
-            ? radiusTablet
-            : radiusDesktop;
-
-    // Central container is set smaller than the orbits.
+    // Responsive container size based on device type.
     const containerSize = isMobile ? 200 : isTablet ? 250 : 300;
-    // Responsive icon size
-    const iconSize = isMobile ? 30 : 45;
-    // Grayish color for icons
+    // Base offset determines how far the orbit is from the sphere; it increases with screen size.
+    const baseOffset = isMobile ? 20 : isTablet ? 30 : 40;
+    // Dynamically calculate orbit radii relative to container size.
+    const firstOrbitRadius = containerSize / 2 + baseOffset;
+    // Increase second orbit radius by a few extra pixels (e.g., 30px) for a clear gap.
+    const secondOrbitRadius = firstOrbitRadius + 55;
+
+    const orbitRadii = [firstOrbitRadius, secondOrbitRadius];
+
+    // Adjust icon size responsively.
+    const iconSize = isMobile ? 30 : isTablet ? 40 : 45;
     const iconColor = "#A0A0A0";
 
     return (
@@ -137,7 +132,7 @@ export default function SkillsOrbit() {
             >
                 {skills.map((skill, index) => {
                     if (index % 2 === 0) {
-                        const { x, y } = getSkillPosition(index, skills.length, radii[0]);
+                        const { x, y } = getSkillPosition(index, skills.length, orbitRadii[0]);
                         return (
                             <Box
                                 key={skill.id}
@@ -172,7 +167,7 @@ export default function SkillsOrbit() {
             >
                 {skills.map((skill, index) => {
                     if (index % 2 !== 0) {
-                        const { x, y } = getSkillPosition(index, skills.length, radii[1]);
+                        const { x, y } = getSkillPosition(index, skills.length, orbitRadii[1]);
                         return (
                             <Box
                                 key={skill.id}
