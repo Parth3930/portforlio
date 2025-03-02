@@ -8,9 +8,25 @@ import SkillsOrbit from "@/componants/SkillsOrbit";
 import { motion } from "framer-motion";
 import Projects from "@/componants/projects";
 import { FaGithub, FaDiscord, FaEnvelope, FaLinkedin } from "react-icons/fa";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Home() {
+  // Add meta tags for SEO
+  const metaTags = {
+    title: "Parth Sharma - Developer Portfolio",
+    description: "Explore my portfolio to see my projects, skills, and experience as a developer.",
+  };
+
+  // Set document title and description inside useEffect
+  useEffect(() => {
+    document.title = metaTags.title;
+
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", metaTags.description);
+    }
+  }, []); // Empty dependency array ensures this runs only once after the component mounts
+
   // Socials mapping using react-icons
   const socials = [
     { id: "github", Icon: FaGithub, url: "https://github.com/ItzGG" },
