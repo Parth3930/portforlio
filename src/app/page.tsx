@@ -32,7 +32,7 @@ export default function Home() {
     { id: "github", Icon: FaGithub, url: "https://github.com/ItzGG" },
     { id: "discord", Icon: FaDiscord, url: "https://discord.gg/sauHKcy2Zc" },
     { id: "gmail", Icon: FaEnvelope, url: "mailto:sharmaparth.developer@gmail.com" },
-    { id: "linkedin", Icon: FaLinkedin, url: "https://www.linkedin.com/in/parth-sharma-029537321/" },
+    { id: "linkedin", Icon: FaLinkedin, url: "https://www.linkedin.com/in/itzparthsharma?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
   ];
 
   const aboutRef = useRef<HTMLDivElement>(null);
