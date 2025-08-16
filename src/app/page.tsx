@@ -25,7 +25,7 @@ export default function Home() {
     if (metaDescription) {
       metaDescription.setAttribute("content", metaTags.description);
     }
-  }, []); // Empty dependency array ensures this runs only once after the component mounts
+  }, [metaTags.title, metaTags.description]); // Include metaTags dependencies
 
   // Socials mapping using react-icons
   const socials = [
