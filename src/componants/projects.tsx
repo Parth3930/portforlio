@@ -5,25 +5,18 @@ import { ExternalLink } from 'lucide-react';
 const Projects = () => {
     const projects = [
         {
+            title: "Yapster",
+            description: "A Gen Z social media startup I'm currently working on. Building authentic connections and creative expression through innovative features and modern technology.",
+            image: "./projects/yapster.png",
+            tech: ["Flutter", "Dart", "Rust", "WebSocket", "PostgreSQL", "Redis"],
+            link: null
+        },
+        {
             title: "Avina Money",
-            description: "Explore and compare financial products from banks and financial institutions in one place. Get detailed information to make well-informed financial decisions.",
+            description: "Explore and compare financial products from banks and financial institutions in one place. Get detailed information to make well-informed financial decisions. *Its an MVP*",
             image: "./projects/avina.png",
             tech: ["React", "Node.js", "Supabase", "Mui", "Framer Motion"],
-            link: "https://avinamoney.com/"
-        },
-        {
-            title: "Infinity Dust",
-            description: "Endless survival with a touch of retro games mixed with amazing game mechanics",
-            image: "./projects/infinity_dust.png",
-            tech: ["Flutter", "Dart", "Firebase", "Flame", "Supabase", "Provider"],
-            link: "https://play.google.com/store/apps/details?id=com.infinity_dust"
-        },
-        {
-            title: "Silent Crest",
-            description: "Track steps, complete quests, earn rewards, and level up with Silent Crest!",
-            image: "./projects/silent_crest.png",
-            tech: ["Flutter", "Dart", "Firebase", "Pedometer", "Provider"],
-            link: "https://play.google.com/store/apps/details?id=com.silent.fitness"
+            link: "https://avinamoney.netlify.app/"
         },
     ];
 
@@ -61,39 +54,41 @@ const Projects = () => {
                                 flexDirection: 'column'
                             }}
                         >
-                            <Box
-                                sx={{
-                                    position: 'relative',
-                                    height: 200,
-                                    overflow: 'hidden',
-                                    borderTopLeftRadius: 16,
-                                    borderTopRightRadius: 16,
-                                }}
-                            >
-                                <CardMedia
-                                    component="img"
-                                    image={project.image}
-                                    alt={project.title}
-                                    sx={{
-                                        height: '100%',
-                                        width: '100%',
-                                        objectFit: 'cover',
-                                        objectPosition: 'top',
-                                    }}
-                                />
+                            {project.image && (
                                 <Box
                                     sx={{
-                                        position: 'absolute',
-                                        top: 0,
-                                        left: 0,
-                                        right: 0,
-                                        bottom: 0,
+                                        position: 'relative',
+                                        height: 200,
+                                        overflow: 'hidden',
                                         borderTopLeftRadius: 16,
                                         borderTopRightRadius: 16,
-                                        background: 'linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%)',
                                     }}
-                                />
-                            </Box>
+                                >
+                                    <CardMedia
+                                        component="img"
+                                        image={project.image}
+                                        alt={project.title}
+                                        sx={{
+                                            height: '100%',
+                                            width: '100%',
+                                            objectFit: 'cover',
+                                            objectPosition: 'top',
+                                        }}
+                                    />
+                                    <Box
+                                        sx={{
+                                            position: 'absolute',
+                                            top: 0,
+                                            left: 0,
+                                            right: 0,
+                                            bottom: 0,
+                                            borderTopLeftRadius: 16,
+                                            borderTopRightRadius: 16,
+                                            background: 'linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%)',
+                                        }}
+                                    />
+                                </Box>
+                            )}
 
                             <CardContent
                                 sx={{
@@ -156,26 +151,51 @@ const Projects = () => {
                                         ))}
                                     </Box>
 
-                                    <Button
-                                        fullWidth
-                                        variant="contained"
-                                        href={project.link}
-                                        target="_blank"
-                                        sx={{
-                                            mt: 3,
-                                            py: 1.5,
-                                            borderRadius: 2,
-                                            background: 'linear-gradient(45deg, #6CA2A6 30%, #8cc3c5 90%)',
-                                            fontWeight: 600,
-                                            color: '#121212',
-                                            transition: 'box-shadow 0.3s ease',
-                                            '&:hover': {
-                                                boxShadow: '0 0 15px rgba(108, 162, 166, 0.4)',
-                                            },
-                                        }}
-                                    >
-                                        View Project
-                                    </Button>
+                                    {project.link ? (
+                                        <Button
+                                            fullWidth
+                                            variant="contained"
+                                            component="a"
+                                            href={project.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            sx={{
+                                                mt: 3,
+                                                py: 1.5,
+                                                borderRadius: 2,
+                                                background: 'linear-gradient(45deg, #6CA2A6 30%, #8cc3c5 90%)',
+                                                fontWeight: 600,
+                                                color: '#121212',
+                                                transition: 'box-shadow 0.3s ease',
+                                                '&:hover': {
+                                                    boxShadow: '0 0 15px rgba(108, 162, 166, 0.4)',
+                                                }
+                                            }}
+                                        >
+                                            View Project
+                                        </Button>
+                                    ) : (
+                                        <Button
+                                            fullWidth
+                                            variant="contained"
+                                            disabled
+                                            sx={{
+                                                mt: 3,
+                                                py: 1.5,
+                                                borderRadius: 2,
+                                                background: 'rgba(108, 162, 166, 0.3)',
+                                                fontWeight: 600,
+                                                color: '#666',
+                                                cursor: 'not-allowed',
+                                                '&.Mui-disabled': {
+                                                    background: 'rgba(108, 162, 166, 0.3)',
+                                                    color: '#666',
+                                                }
+                                            }}
+                                        >
+                                            Coming Soon
+                                        </Button>
+                                    )}
                                 </Box>
                             </CardContent>
                         </Card>
