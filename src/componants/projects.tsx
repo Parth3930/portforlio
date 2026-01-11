@@ -49,7 +49,7 @@ const Projects = () => {
                 Featured Projects
             </Typography>
 
-            <Grid spacing={6} justifyContent="center">
+            <Grid container spacing={6} justifyContent="center">
                 {projects.map((project, index) => (
                     <Grid size={{ xs: 12, md: 6, lg: 4 }} key={index}>
                         <Card
