@@ -9,7 +9,7 @@ const Projects = () => {
             description: "A Gen Z social media startup I'm currently working on. Building authentic connections and creative expression through innovative features and modern technology.",
             image: "./projects/yapster.png",
             tech: ["Flutter", "Dart", "Rust", "WebSocket", "PostgreSQL", "Redis"],
-            link: null
+            link: "https://play.google.com/store/apps/details?id=com.yapster.avina"
         },
         {
             title: "Avina Money",
