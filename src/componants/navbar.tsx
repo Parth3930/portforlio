@@ -11,15 +11,15 @@ const varients = {
 }
 
 interface NavProps {
-    aboutRef: RefObject<HTMLDivElement>;
-    skillsRef: RefObject<HTMLDivElement>;
-    projectsRef: RefObject<HTMLDivElement>;
+    aboutRef: RefObject<HTMLDivElement | null>;
+    skillsRef: RefObject<HTMLDivElement | null>;
+    projectsRef: RefObject<HTMLDivElement | null>;
 }
 
 export default function Nav({ aboutRef, skillsRef, projectsRef }: NavProps) {
     const [clicked, setClicked] = useState(false);
 
-    const scrollToElement = (ref: RefObject<HTMLDivElement>) => {
+    const scrollToElement = (ref: RefObject<HTMLDivElement | null>) => {
         ref.current?.scrollIntoView({ behavior: "smooth" });
     };
 
