@@ -29,7 +29,7 @@ export default function Home() {
 
   // Socials mapping using react-icons
   const socials = [
-    { id: "github", Icon: FaGithub, url: "https://github.com/ItzGG" },
+    { id: "github", Icon: FaGithub, url: "https://github.com/Parth3930" },
     { id: "discord", Icon: FaDiscord, url: "https://discord.gg/sauHKcy2Zc" },
     { id: "gmail", Icon: FaEnvelope, url: "mailto:sharmaparth.developer@gmail.com" },
     { id: "linkedin", Icon: FaLinkedin, url: "https://www.linkedin.com/in/itzparthsharma?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
