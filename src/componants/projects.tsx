@@ -18,6 +18,13 @@ const Projects = () => {
             tech: ["React", "Node.js", "Supabase", "Mui", "Framer Motion"],
             link: "https://avinamoney.netlify.app/"
         },
+        {
+            title: "Realim",
+            description: "A serverless, peer-to-peer AR collaboration platform. Enables private, invite-only AR boards where data is shared exclusively between participants. Features gesture-based AR interactions and fully serverless architecture.",
+            image: "./projects/realim.png",
+            tech: ["Astro", "WebRTC", "Serverless", "P2P", "AR", "Caching"],
+            link: "https://realim.vercel.app/"
+        },
     ];
 
     return (
