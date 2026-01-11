@@ -31,7 +31,7 @@ const orbitVariants = {
             repeat: Infinity,
             duration: 30,
             ease: "linear",
-        },
+        } as any,
     },
     counterClockwise: {
         rotate: -360,
@@ -39,7 +39,7 @@ const orbitVariants = {
             repeat: Infinity,
             duration: 30,
             ease: "linear",
-        },
+        } as any,
     },
 };
 
