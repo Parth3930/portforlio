@@ -1,21 +1,26 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.1.0",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "dev:bun": "bun run dev",
+    "build:bun": "bun run build",
+    "preview:bun": "bun run preview"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@fontsource/itim": "^5.2.5",
+    "@fontsource/mirza": "^5.2.5",
     "@mui/material": "^7.3.7",
     "@react-spring/web": "^10.0.3",
     "framer-motion": "^12.25.0",
     "lucide-react": "^0.562.0",
-    "next": "^16.1.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-icons": "^5.5.0",
@@ -27,8 +32,9 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-syntax-highlighter": "^15.5.13",
+    "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9",
-    "eslint-config-next": "^16.1.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite": "^6.2.0"
   }
 }

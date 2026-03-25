@@ -1,9 +1,11 @@
-import { Itim, Mirza } from "next/font/google"
+import "@fontsource/itim/400.css";
+import "@fontsource/mirza/400.css";
 
-export const itim = Itim({
-    weight: "400", style: "normal", subsets: ["latin"]
-})
+// Create font objects compatible with MUI's className approach
+export const itim = {
+  className: "itim-font",
+};
 
-export const mirza = Mirza({
-    weight: "400", style: "normal", subsets: ["latin"]
-}) 
+export const mirza = {
+  className: "mirza-font",
+};
