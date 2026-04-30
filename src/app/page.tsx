@@ -1,163 +1,251 @@
 "use client";
-import BreathingLines from "@/componants/breathingLines";
-import CodeBlock from "@/componants/codeblock";
+import { useEffect, useRef, RefObject } from "react";
 import { itim, mirza } from "@/componants/fonts/fonts";
 import Nav from "@/componants/navbar";
-import { Container, Box, Typography, IconButton } from "@mui/material";
+import { Container, Box, Typography, IconButton, Button } from "@mui/material";
 import SkillsOrbit from "@/componants/SkillsOrbit";
 import { motion } from "framer-motion";
 import Projects from "@/componants/projects";
+import Journey from "@/componants/journey";
+import Footer from "@/componants/footer";
 import { FaGithub, FaDiscord, FaEnvelope, FaLinkedin } from "react-icons/fa";
-import { useEffect, useRef } from "react";
+import { ArrowDown } from "lucide-react";
 
 export default function Home() {
-  // Add meta tags for SEO
   const metaTags = {
-    title: "Parth Sharma - Developer Portfolio",
-    description: "Explore my portfolio to see my projects, skills, and experience as a developer.",
+    title: "Parth Sharma - Cool Portfolio",
+    description: "I build stuff that works (and looks cool).",
   };
 
-  // Set document title and description inside useEffect
   useEffect(() => {
     document.title = metaTags.title;
-
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute("content", metaTags.description);
     }
-  }, [metaTags.title, metaTags.description]); // Include metaTags dependencies
+  }, [metaTags.title, metaTags.description]);
 
-  // Socials mapping using react-icons
   const socials = [
-    { id: "github", Icon: FaGithub, url: "https://github.com/Parth3930" },
-    { id: "discord", Icon: FaDiscord, url: "https://discord.gg/sauHKcy2Zc" },
-    { id: "gmail", Icon: FaEnvelope, url: "mailto:sharmaparth.developer@gmail.com" },
-    { id: "linkedin", Icon: FaLinkedin, url: "https://www.linkedin.com/in/itzparthsharma?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" },
+    {
+      id: "github",
+      Icon: FaGithub,
+      url: "https://github.com/Parth3930",
+      color: "#000",
+    },
+    {
+      id: "discord",
+      Icon: FaDiscord,
+      url: "https://discord.gg/sauHKcy2Zc",
+      color: "#5865F2",
+    },
+    {
+      id: "gmail",
+      Icon: FaEnvelope,
+      url: "mailto:sharmaparth.developer@gmail.com",
+      color: "#EA4335",
+    },
+    {
+      id: "linkedin",
+      Icon: FaLinkedin,
+      url: "https://www.linkedin.com/in/itzparthsharma?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      color: "#0A66C2",
+    },
   ];
 
   const aboutRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
 
+  const scrollToElement = (ref: RefObject<HTMLDivElement | null>) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <Container maxWidth={false} disableGutters>
-      <Nav aboutRef={aboutRef} skillsRef={skillsRef} projectsRef={projectsRef} />
-      <BreathingLines top="0rem" right="none" time="0s" />
-      {/* About */}
+    <Container
+      maxWidth={false}
+      disableGutters
+      sx={{ minHeight: "100vh", bgcolor: "var(--background)" }}
+    >
+      <Nav
+        aboutRef={aboutRef}
+        skillsRef={skillsRef}
+        projectsRef={projectsRef}
+      />
+
+      {/* Hero Section */}
       <Box
         sx={{
           display: "flex",
           flexDirection: "column",
-          marginLeft: { xs: "none", md: 15 },
-          marginTop: { xs: 3, md: 12 },
-          width: { xs: "100%", md: "35%", lg: "40%" },
-          alignItems: { xs: "center", md: "start" },
-          justifyContent: { xs: "center", md: "left" },
-          textAlign: { xs: "center", md: "start" },
-          gap: { xs: 1.5, md: 1 },
+          pt: { xs: 20, md: 25 },
+          pb: 10,
+          px: { xs: 2, md: 10 },
+          alignItems: "center",
+          textAlign: "center",
+          gap: 4,
         }}
         ref={aboutRef}
       >
-        <Typography variant="h2" className={itim.className} sx={{ color: "#FFFFFF" }}>
-          Hey,{" "}
-          <motion.span
+        <Box sx={{ position: "relative" }}>
+          <Typography
+            variant="h1"
             className={itim.className}
-            initial={{ color: "#FFFFFF" }}
-            animate={{
-              color: "#6CA2A6",
-              transition: { delay: 0.5, duration: 1, ease: "easeIn" },
+            sx={{
+              fontSize: { xs: "3.5rem", md: "6rem" },
+              fontWeight: 900,
+              color: "#000",
+              lineHeight: 1,
+              textTransform: "uppercase",
+              WebkitTextStroke: "2px #000",
+              textShadow: "6px 6px 0px #FFD100",
             }}
           >
-            There!
-          </motion.span>
-        </Typography>
+            HEY, I&apos;M <span style={{ color: "#FF6B6B" }}>PARTH!</span>
+          </Typography>
+
+          <motion.div
+            initial={{ rotate: -5, x: -50, opacity: 0 }}
+            animate={{ rotate: -5, x: 0, opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            style={{
+              position: "absolute",
+              top: -40,
+              left: -20,
+              background: "#4ECDC4",
+              border: "3px solid #000",
+              padding: "5px 15px",
+              boxShadow: "4px 4px 0px #000",
+            }}
+          >
+            <Typography sx={{ fontWeight: 900, color: "#000" }}>
+              WANTED: COOL DEV
+            </Typography>
+          </motion.div>
+        </Box>
+
         <Typography
           className={mirza.className}
           sx={{
-            color: "#FFFFFF",
-            fontSize: { xs: 18, md: 20 },
-            marginX: { xs: 2, md: 0 },
-            userSelect: "none",
+            color: "#000",
+            fontSize: { xs: 22, md: 28 },
+            maxWidth: "800px",
+            fontWeight: 600,
+            lineHeight: 1.4,
+            background: "#FFF",
+            border: "4px solid #000",
+            padding: "20px",
+            boxShadow: "10px 10px 0px #000",
+            transform: "rotate(1deg)",
           }}
         >
-          I&apos;m Parth, a full stack developer skilled in front-end and back-end
-          technologies. I create dynamic applications, focusing on seamless user
-          experiences. In my spare time, I enjoy developing games with the Unreal
-          Engine 5. Proficient in Python, Java, and other languages, with a strong
-          interest in React, JavaScript, and clean code.
+          Full Stack & Systems Developer building high-performance backends and
+          social platforms. Currently scaling Yapster and HireCode.
         </Typography>
-        <Box
-          sx={{
-            width: "100%",
-            height: 50,
-            display: "flex",
-            marginTop: 1,
-            justifyContent: { xs: "center", md: "start" },
-          }}
-        >
-          <Box sx={{ flexDirection: "row", display: "flex", gap: 2 }}>
-            {socials.map(({ id, Icon, url }) => (
+
+        <Box sx={{ display: "flex", gap: 3, mt: 4 }}>
+          {socials.map(({ id, Icon, url, color }) => (
+            <motion.div key={id} whileHover={{ y: -5, scale: 1.1 }}>
               <IconButton
-                key={id}
-                sx={{ color: "#A0A0A0", fontSize: { xs: 25, md: 35 } }} // smaller and grey
+                sx={{
+                  color: "#000",
+                  fontSize: { xs: 30, md: 40 },
+                  bgcolor: "#FFF",
+                  border: "3px solid #000",
+                  boxShadow: "4px 4px 0px #000",
+                  "&:hover": { bgcolor: color + "20" },
+                }}
                 onClick={() => window.open(url, "_blank")}
               >
                 <Icon />
               </IconButton>
-            ))}
-          </Box>
+            </motion.div>
+          ))}
         </Box>
-        <Box
-          sx={{
-            boxShadow: 5,
-            border: 2,
-            borderColor: "#506769",
-            display: { xs: "none", md: "flex" },
-            position: "absolute",
-            right: 100,
-            width: { md: "40%", lg: "33%" },
-            height: 250,
-            bgcolor: "#181818",
-            borderRadius: 5,
-            flexDirection: "column",
-          }}
+
+        <motion.div
+          animate={{ y: [0, -5, 0] }}
+          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         >
-          <Box sx={{ display: "flex", width: "100%", marginTop: 1, marginLeft: 1, gap: 1 }}>
-            <Box sx={{ width: 15, height: 15, bgcolor: "#FF9393", borderRadius: "50%" }}></Box>
-            <Box sx={{ width: 15, height: 15, bgcolor: "#A5FFB3", borderRadius: "50%" }}></Box>
-            <Box sx={{ width: 15, height: 15, bgcolor: "#D1F7FF", borderRadius: "50%" }}></Box>
-          </Box>
-          <CodeBlock />
-        </Box>
-        <BreathingLines top="25rem" right="0" time="2s" />
+          <Button
+            className="cartoon-btn"
+            sx={{
+              mt: 4,
+              fontSize: { xs: "1.1rem", md: "1.4rem" },
+              borderRadius: "12px",
+              fontFamily: "Itim",
+              padding: "12px 30px",
+              background: "#FFD100",
+              color: "#000",
+              border: "4px solid #000",
+              boxShadow: "6px 6px 0px #000",
+              display: "flex",
+              alignItems: "center",
+              gap: 1.5,
+              textTransform: "none",
+              fontWeight: 900,
+              "&:hover": {
+                background: "#FF6B6B",
+                color: "#FFF",
+                boxShadow: "3px 3px 0px #000",
+                transform: "translate(3px, 3px)",
+              },
+              "&:active": {
+                transform: "translate(5px, 5px)",
+                boxShadow: "1px 1px 0px #000",
+              },
+            }}
+            onClick={() => scrollToElement(projectsRef)}
+          >
+            SEE MY WORK
+            <motion.div
+              animate={{ y: [0, 3, 0] }}
+              transition={{ repeat: Infinity, duration: 1 }}
+            >
+              <ArrowDown size={24} strokeWidth={3} />
+            </motion.div>
+          </Button>
+        </motion.div>
       </Box>
-      {/* Skills */}
-      <Box
-        sx={{
-          overflow: "hidden",
-          width: "100%",
-          height: "100dvh",
-          display: "flex",
-          marginTop: { xs: -5, md: 5, lg: 10 },
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-        ref={skillsRef}
-      >
+
+      {/* Skills Section */}
+      <Box sx={{ mt: 10 }} ref={skillsRef}>
         <SkillsOrbit />
       </Box>
-      <Box
-        sx={{
-          width: "100%",
-          height: 350,
-          display: "flex",
-          marginTop: { xs: -5, md: 5, lg: 10 },
-          flexDirection: "column",
-        }}
-        ref={projectsRef}
-      >
+
+      {/* Journey Section */}
+      <Box sx={{ mt: 10 }}>
+        <Journey />
+      </Box>
+
+      {/* Projects Section */}
+      <Box sx={{ mt: 10, pb: 10 }} ref={projectsRef}>
         <Projects />
       </Box>
+
+      <Footer />
+
+      {/* Floating Sticker */}
+      <motion.div
+        animate={{ y: [0, -10, 0] }}
+        transition={{ repeat: Infinity, duration: 2 }}
+        style={{
+          position: "fixed",
+          bottom: 30,
+          right: 30,
+          background: "#9B59B6",
+          color: "#FFF",
+          padding: "10px 20px",
+          border: "4px solid #000",
+          boxShadow: "5px 5px 0px #000",
+          fontWeight: 900,
+          zIndex: 1000,
+          transform: "rotate(10deg)",
+          cursor: "pointer",
+        }}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      >
+        GO UP?
+      </motion.div>
     </Container>
   );
 }

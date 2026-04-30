@@ -1,14 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { mirza, itim } from "./fonts/fonts";
-import { RefObject, useState } from "react";
-
-const varients = {
-  openTop: { y: 10, rotate: -50 },
-  openBottom: { y: -10, rotate: 50 },
-  dissolve: { opacity: 0 },
-  closed: {},
-};
+import { itim } from "./fonts/fonts";
+import { RefObject } from "react";
 
 interface NavProps {
   aboutRef: RefObject<HTMLDivElement | null>;
@@ -17,198 +10,94 @@ interface NavProps {
 }
 
 export default function Nav({ aboutRef, skillsRef, projectsRef }: NavProps) {
-  const [clicked, setClicked] = useState(false);
-
   const scrollToElement = (ref: RefObject<HTMLDivElement | null>) => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const navItems = [
+    { label: "ABOUT", ref: aboutRef, color: "#FF6B6B" },
+    { label: "SKILLS", ref: skillsRef, color: "#4ECDC4" },
+    { label: "PROJECTS", ref: projectsRef, color: "#45B7D1" },
+  ];
+
   return (
     <Box
       component={motion.div}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1, ease: "easeIn" }}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
       sx={{
         display: "flex",
-        position: "relative",
-        width: "100%",
-        gap: 3,
-        height: 100,
+        position: "fixed",
+        top: 20,
+        left: "50%",
+        transform: "translateX(-50%)",
+        zIndex: 1000,
+        gap: 2,
+        padding: "10px 20px",
+        background: "#FFF",
+        border: "4px solid #000",
+        boxShadow: "6px 6px 0px #000",
+        borderRadius: "15px",
         alignItems: "center",
-        color: "#A0A0A0",
-        justifyContent: "space-between",
+        justifyContent: "center",
         userSelect: "none",
+        width: "fit-content",
       }}
     >
       <Box
         sx={{
-          borderRadius: "50%",
-          borderColor: "#75A8AB",
-          border: "solid",
-          width: 45,
-          height: 45,
+          background: "#FFD100",
+          border: "3px solid #000",
+          width: 40,
+          height: 40,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          marginLeft: 5,
+          borderRadius: "8px",
           cursor: "pointer",
-          transition: "color 0.3s ease-in, border-color 0.3s ease-in",
-          ":hover": { color: "#75A8AB", borderColor: "#75A8AB" },
+          mr: 2,
+          boxShadow: "2px 2px 0px #000",
+          "&:active": {
+            transform: "translate(1px, 1px)",
+            boxShadow: "1px 1px 0px #000",
+          },
         }}
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         <Typography
           className={itim.className}
-          variant="h4"
-          sx={{
-            lineHeight: 1,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
+          variant="h5"
+          sx={{ fontWeight: 900 }}
         >
           P
         </Typography>
       </Box>
-      <Box sx={{ display: "flex", gap: 3, marginRight: 5 }}>
+
+      {navItems.map((item) => (
         <Typography
-          variant="h5"
-          className={mirza.className}
+          key={item.label}
+          className={itim.className}
           sx={{
             cursor: "pointer",
-            transition: "color 0.3s ease-in",
-            ":hover": { color: "#75A8AB" },
-            display: { xs: "none", md: "block" },
+            fontWeight: 900,
+            fontSize: { xs: "0.8rem", md: "1rem" },
+            padding: "5px 12px",
+            border: "3px solid transparent",
+            transition: "all 0.2s",
+            "&:hover": {
+              background: item.color,
+              border: "3px solid #000",
+              boxShadow: "3px 3px 0px #000",
+              borderRadius: "8px",
+              color: "#FFF",
+              transform: "rotate(-3deg) scale(1.1)",
+            },
           }}
-          onClick={() => scrollToElement(aboutRef)}
+          onClick={() => scrollToElement(item.ref)}
         >
-          About
+          {item.label}
         </Typography>
-        <Typography
-          variant="h5"
-          className={mirza.className}
-          sx={{
-            cursor: "pointer",
-            transition: "color 0.3s ease-in",
-            ":hover": { color: "#75A8AB" },
-            display: { xs: "none", md: "block" },
-          }}
-          onClick={() => scrollToElement(skillsRef)}
-        >
-          Skills
-        </Typography>
-        <Typography
-          variant="h5"
-          className={mirza.className}
-          sx={{
-            cursor: "pointer",
-            transition: "color 0.3s ease-in",
-            ":hover": { color: "#75A8AB" },
-            display: { xs: "none", md: "block" },
-          }}
-          onClick={() => scrollToElement(projectsRef)}
-        >
-          Projects
-        </Typography>
-        <Box
-          sx={{ display: { xs: "block", md: "none" }, width: 40, height: 40 }}
-          onClick={() => setClicked(!clicked)}
-        >
-          <Box
-            component={motion.div}
-            sx={{
-              width: "100%",
-              height: "100%",
-              display: "flex",
-              flexDirection: "column",
-              gap: 0.9,
-              justifyContent: "center",
-              alignItems: "center",
-              "&:hover .line": { backgroundColor: "#75A8AB" },
-            }}
-          >
-            <Box
-              component={motion.div}
-              className="line"
-              sx={{ width: "100%", height: 4, bgcolor: "#A0A0A0" }}
-              variants={varients}
-              animate={clicked ? "openTop" : "closed"}
-            />
-            <Box
-              component={motion.div}
-              className="line"
-              sx={{ width: "70%", height: 3, bgcolor: "#A0A0A0" }}
-              variants={varients}
-              animate={clicked ? "dissolve" : "closed"}
-            />
-            <Box
-              component={motion.div}
-              className="line"
-              sx={{ width: "100%", height: 4, bgcolor: "#A0A0A0" }}
-              variants={varients}
-              animate={clicked ? "openBottom" : "closed"}
-            />
-          </Box>
-          {clicked && (
-            <Box
-              component={motion.div}
-              initial={{ y: -200 }}
-              animate={{ y: -96 }}
-              sx={{ width: "100%", position: "absolute", left: 0, height: 40 }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  width: "100%",
-                  gap: 3,
-                  height: "100%",
-                  color: "#A0A0A0",
-                  userSelect: "none",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <Typography
-                  variant="h5"
-                  className={mirza.className}
-                  sx={{
-                    cursor: "pointer",
-                    transition: "color 0.3s ease-in",
-                    ":hover": { color: "#75A8AB" },
-                  }}
-                  onClick={() => scrollToElement(aboutRef)}
-                >
-                  About
-                </Typography>
-                <Typography
-                  variant="h5"
-                  className={mirza.className}
-                  sx={{
-                    cursor: "pointer",
-                    transition: "color 0.3s ease-in",
-                    ":hover": { color: "#75A8AB" },
-                  }}
-                  onClick={() => scrollToElement(skillsRef)}
-                >
-                  Skills
-                </Typography>
-                <Typography
-                  variant="h5"
-                  className={mirza.className}
-                  sx={{
-                    cursor: "pointer",
-                    transition: "color 0.3s ease-in",
-                    ":hover": { color: "#75A8AB" },
-                  }}
-                  onClick={() => scrollToElement(projectsRef)}
-                >
-                  Projects
-                </Typography>
-              </Box>
-            </Box>
-          )}
-        </Box>
-      </Box>
+      ))}
     </Box>
   );
 }

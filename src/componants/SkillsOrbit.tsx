@@ -2,209 +2,131 @@ import { motion } from "framer-motion";
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import { itim } from "./fonts/fonts";
 import {
-  FaHtml5,
-  FaCss3Alt,
   FaJs,
   FaNodeJs,
   FaReact,
-  FaJava,
-  FaPython,
   FaDocker,
+  FaRust,
 } from "react-icons/fa";
 import {
   SiTailwindcss,
   SiTypescript,
-  SiExpress,
-  SiVite,
   SiSupabase,
-  SiVercel,
   SiPostgresql,
-  SiUnrealengine,
+  SiFlutter,
+  SiDart,
+  SiFirebase,
+  SiRedis,
+  SiKubernetes,
+  SiTerraform,
+  SiNextdotjs,
+  SiGooglecloud,
+  SiScylladb,
+  SiWebrtc,
+  SiVercel,
+  SiNetlify,
+  SiExpress,
+  SiMui,
+  SiFramer,
 } from "react-icons/si";
 
 const skills = [
-  { id: "html", Icon: FaHtml5 },
-  { id: "css", Icon: FaCss3Alt },
-  { id: "js", Icon: FaJs },
-  { id: "node", Icon: FaNodeJs },
-  { id: "tailwind", Icon: SiTailwindcss },
-  { id: "ts", Icon: SiTypescript },
-  { id: "express", Icon: SiExpress },
-  { id: "vite", Icon: SiVite },
-  { id: "supabase", Icon: SiSupabase },
-  { id: "vercel", Icon: SiVercel },
-  { id: "react", Icon: FaReact },
-  { id: "postgres", Icon: SiPostgresql },
-  { id: "docker", Icon: FaDocker },
-  { id: "java", Icon: FaJava },
-  { id: "python", Icon: FaPython },
-  { id: "unreal", Icon: SiUnrealengine },
+  { id: "rust", Icon: FaRust, color: "#DEA584" },
+  { id: "ts", Icon: SiTypescript, color: "#3178C6" },
+  { id: "nextjs", Icon: SiNextdotjs, color: "#000000" },
+  { id: "flutter", Icon: SiFlutter, color: "#02569B" },
+  { id: "dart", Icon: SiDart, color: "#0175C2" },
+  { id: "react", Icon: FaReact, color: "#61DAFB" },
+  { id: "node", Icon: FaNodeJs, color: "#339933" },
+  { id: "postgres", Icon: SiPostgresql, color: "#4169E1" },
+  { id: "redis", Icon: SiRedis, color: "#DC382D" },
+  { id: "scylla", Icon: SiScylladb, color: "#3B5998" },
+  { id: "supabase", Icon: SiSupabase, color: "#3ECF8E" },
+  { id: "firebase", Icon: SiFirebase, color: "#FFCA28" },
+  { id: "docker", Icon: FaDocker, color: "#2496ED" },
+  { id: "k8s", Icon: SiKubernetes, color: "#326CE5" },
+  { id: "terraform", Icon: SiTerraform, color: "#7B42BC" },
+  { id: "gcp", Icon: SiGooglecloud, color: "#4285F4" },
+  { id: "webrtc", Icon: SiWebrtc, color: "#333333" },
+  { id: "vercel", Icon: SiVercel, color: "#000000" },
+  { id: "netlify", Icon: SiNetlify, color: "#00C7B7" },
+  { id: "express", Icon: SiExpress, color: "#000000" },
+  { id: "mui", Icon: SiMui, color: "#007FFF" },
+  { id: "framer", Icon: SiFramer, color: "#0055FF" },
+  { id: "tailwind", Icon: SiTailwindcss, color: "#06B6D4" },
+  { id: "js", Icon: FaJs, color: "#F7DF1E" },
 ];
-
-const orbitVariants = {
-  clockwise: {
-    rotate: 360,
-    transition: {
-      repeat: Infinity,
-      duration: 30,
-      ease: "linear",
-    } as any,
-  },
-  counterClockwise: {
-    rotate: -360,
-    transition: {
-      repeat: Infinity,
-      duration: 30,
-      ease: "linear",
-    } as any,
-  },
-};
-
-function getSkillPosition(
-  index: number,
-  totalSkills: number,
-  radius: number,
-): { x: number; y: number } {
-  const angle = (index / totalSkills) * 2 * Math.PI;
-  const x = Math.cos(angle) * radius;
-  const y = Math.sin(angle) * radius;
-  return { x, y };
-}
 
 export default function SkillsOrbit() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
-
-  // Responsive container size based on device type.
-  const containerSize = isMobile ? 200 : isTablet ? 250 : 300;
-  // Base offset determines how far the orbit is from the sphere; it increases with screen size.
-  const baseOffset = isMobile ? 20 : isTablet ? 30 : 40;
-  // Dynamically calculate orbit radii relative to container size.
-  const firstOrbitRadius = containerSize / 2 + baseOffset;
-  // Increase second orbit radius by a few extra pixels (e.g., 30px) for a clear gap.
-  const secondOrbitRadius = firstOrbitRadius + 55;
-
-  const orbitRadii = [firstOrbitRadius, secondOrbitRadius];
-
-  // Adjust icon size responsively.
-  const iconSize = isMobile ? 30 : isTablet ? 40 : 45;
-  const iconColor = "#A0A0A0";
 
   return (
-    <Box
-      component={motion.div}
-      sx={{
-        bgcolor: "#181818",
-        width: containerSize,
-        height: containerSize,
-        borderRadius: "50%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        position: "relative",
-        boxShadow: 5,
-        border: 2,
-        overflow: "visible",
-      }}
-      animate={{
-        borderColor: ["#3F3F3F", "#6CA2A6", "#00F7F7", "#6CA2A6", "#3F3F3F"],
-      }}
-      transition={{
-        repeat: Infinity,
-        duration: 3,
-        ease: "easeIn",
-      }}
-    >
+    <Box sx={{ py: 10, textAlign: "center", overflow: "visible" }}>
       <Typography
         className={itim.className}
+        variant="h2"
         sx={{
-          color: "white",
-          position: "absolute",
-          fontSize: isMobile ? 20 : isTablet ? 26 : 32,
-          textAlign: "center",
-          zIndex: 2,
+          fontWeight: 900,
+          display: "inline-block",
+          background: "#4ECDC4",
+          padding: "10px 30px",
+          border: "5px solid #000",
+          boxShadow: "10px 10px 0px #000",
+          transform: "rotate(2deg)",
+          mb: 8,
+          color: "#000",
         }}
       >
-        My <span style={{ color: "#6CA2A6" }}>Skills</span>
+        THINGS I KNOW
       </Typography>
-      {/* First orbit for even-indexed skills */}
+
       <Box
-        component={motion.div}
-        variants={orbitVariants}
-        animate="clockwise"
         sx={{
-          position: "absolute",
-          width: "100%",
-          height: "100%",
-          transformOrigin: "center center",
-          pointerEvents: "none",
+          display: "flex",
+          flexWrap: "wrap",
+          gap: 4,
+          justifyContent: "center",
+          maxWidth: "1000px",
+          mx: "auto",
+          px: 2,
         }}
       >
-        {skills.map((skill, index) => {
-          if (index % 2 === 0) {
-            const { x, y } = getSkillPosition(
-              index,
-              skills.length,
-              orbitRadii[0],
-            );
-            return (
-              <Box
-                key={skill.id}
-                sx={{
-                  position: "absolute",
-                  top: `calc(50% + ${y}px)`,
-                  left: `calc(50% + ${x}px)`,
-                  transform: "translate(-50%, -50%)",
-                  cursor: "pointer",
-                  userSelect: "none",
-                }}
-              >
-                <skill.Icon size={iconSize} color={iconColor} />
-              </Box>
-            );
-          }
-          return null;
-        })}
-      </Box>
-      {/* Second orbit for odd-indexed skills */}
-      <Box
-        component={motion.div}
-        variants={orbitVariants}
-        animate="counterClockwise"
-        sx={{
-          position: "absolute",
-          width: "100%",
-          height: "100%",
-          transformOrigin: "center center",
-          pointerEvents: "none",
-        }}
-      >
-        {skills.map((skill, index) => {
-          if (index % 2 !== 0) {
-            const { x, y } = getSkillPosition(
-              index,
-              skills.length,
-              orbitRadii[1],
-            );
-            return (
-              <Box
-                key={skill.id}
-                sx={{
-                  position: "absolute",
-                  top: `calc(50% + ${y}px)`,
-                  left: `calc(50% + ${x}px)`,
-                  transform: "translate(-50%, -50%)",
-                  cursor: "pointer",
-                  userSelect: "none",
-                }}
-              >
-                <skill.Icon size={iconSize} color={iconColor} />
-              </Box>
-            );
-          }
-          return null;
-        })}
+        {skills.map((skill, index) => (
+          <motion.div
+            key={skill.id}
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.2, rotate: index % 2 === 0 ? 10 : -10 }}
+            transition={{
+              type: "spring",
+              stiffness: 260,
+              damping: 20,
+              delay: index * 0.05,
+            }}
+          >
+            <Box
+              sx={{
+                width: isMobile ? 80 : 100,
+                height: isMobile ? 80 : 100,
+                background: "#FFF",
+                border: "4px solid #000",
+                boxShadow: "6px 6px 0px #000",
+                borderRadius: "15px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "all 0.2s",
+                "&:hover": {
+                  background: skill.color + "20",
+                },
+              }}
+            >
+              <skill.Icon size={isMobile ? 40 : 50} color={skill.color} />
+            </Box>
+          </motion.div>
+        ))}
       </Box>
     </Box>
   );
