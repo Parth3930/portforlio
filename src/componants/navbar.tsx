@@ -29,11 +29,11 @@ export default function Nav({ aboutRef, skillsRef, projectsRef }: NavProps) {
         display: "flex",
         position: "fixed",
         top: 20,
-        left: "50%",
-        transform: "translateX(-50%)",
+        left: { xs: 20, md: "50%" },
+        transform: { xs: "none", md: "translateX(-50%)" },
         zIndex: 1000,
-        gap: 2,
-        padding: "10px 20px",
+        gap: { xs: 1, md: 2 },
+        padding: { xs: "8px 10px", md: "10px 20px" },
         background: "#FFF",
         border: "4px solid #000",
         boxShadow: "6px 6px 0px #000",
@@ -41,7 +41,11 @@ export default function Nav({ aboutRef, skillsRef, projectsRef }: NavProps) {
         alignItems: "center",
         justifyContent: "center",
         userSelect: "none",
-        width: "fit-content",
+        width: { xs: "calc(100vw - 40px)", md: "fit-content" },
+        maxWidth: { xs: "calc(100vw - 40px)", md: "fit-content" },
+        minWidth: 0,
+        flexWrap: { xs: "wrap", md: "nowrap" },
+        boxSizing: "border-box",
       }}
     >
       <Box
@@ -80,10 +84,11 @@ export default function Nav({ aboutRef, skillsRef, projectsRef }: NavProps) {
           sx={{
             cursor: "pointer",
             fontWeight: 900,
-            fontSize: { xs: "0.8rem", md: "1rem" },
-            padding: "5px 12px",
+            fontSize: { xs: "0.75rem", md: "1rem" },
+            padding: { xs: "4px 8px", md: "5px 12px" },
             border: "3px solid transparent",
             transition: "all 0.2s",
+            whiteSpace: "nowrap",
             "&:hover": {
               background: item.color,
               border: "3px solid #000",

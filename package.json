@@ -17,6 +17,7 @@
     "@emotion/styled": "^11.14.1",
     "@fontsource/itim": "^5.2.5",
     "@fontsource/mirza": "^5.2.5",
+    "@mui/icons-material": "^9.0.0",
     "@mui/material": "^7.3.7",
     "@react-spring/web": "^10.0.3",
     "framer-motion": "^12.25.0",
