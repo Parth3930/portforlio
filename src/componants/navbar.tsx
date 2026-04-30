@@ -33,7 +33,7 @@ export default function Nav({ aboutRef, skillsRef, projectsRef }: NavProps) {
         transform: { xs: "none", md: "translateX(-50%)" },
         zIndex: 1000,
         gap: { xs: 1, md: 2 },
-        padding: { xs: "8px 10px", md: "10px 20px" },
+        padding: { xs: "8px 8px", md: "10px 20px" },
         background: "#FFF",
         border: "4px solid #000",
         boxShadow: "6px 6px 0px #000",
@@ -41,10 +41,11 @@ export default function Nav({ aboutRef, skillsRef, projectsRef }: NavProps) {
         alignItems: "center",
         justifyContent: "center",
         userSelect: "none",
-        width: { xs: "calc(100vw - 40px)", md: "fit-content" },
-        maxWidth: { xs: "calc(100vw - 40px)", md: "fit-content" },
+        width: { xs: "calc(100vw - 36px)", md: "fit-content" },
+        maxWidth: { xs: "calc(100vw - 36px)", md: "fit-content" },
         minWidth: 0,
-        flexWrap: { xs: "wrap", md: "nowrap" },
+        flexWrap: "nowrap",
+        overflowX: "auto",
         boxSizing: "border-box",
       }}
     >
