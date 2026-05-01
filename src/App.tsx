@@ -10,6 +10,10 @@ import Footer from "@/componants/footer";
 import { FaGithub, FaDiscord, FaEnvelope, FaLinkedin } from "react-icons/fa";
 import { ArrowDown } from "lucide-react";
 
+interface HTMLLinkDescriptor extends HTMLLinkElement {
+  rel: string;
+}
+
 export default function App() {
   const metaTags = {
     title: "Parth Sharma - Cool Portfolio",
@@ -23,6 +27,15 @@ export default function App() {
     if (metaDescription) {
       metaDescription.setAttribute("content", metaTags.description);
     }
+
+    // Update Favicon dynamically
+    const link = (document.querySelector("link[rel*='icon']") ||
+      document.createElement("link")) as HTMLLinkDescriptor;
+    link.type = "image/svg+xml";
+    link.rel = "shortcut icon";
+    link.href =
+      "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>";
+    document.getElementsByTagName("head")[0].appendChild(link);
   }, [metaTags.title, metaTags.description]);
 
   const socials = [
