@@ -13,7 +13,8 @@ import { ArrowDown } from "lucide-react";
 export default function App() {
   const metaTags = {
     title: "Parth Sharma - Cool Portfolio",
-    description: "I build stuff that works (and looks cool).",
+    description:
+      "CTO @ Avina, building HireCode - a technical assessment platform for companies to hire top developer talent.",
   };
 
   useEffect(() => {
@@ -138,8 +139,8 @@ export default function App() {
           }}
         >
           CTO @ Avina, architecting full-stack systems and high-performance
-          backends. Currently scaling Yapster and building financial
-          marketplaces.
+          backends. Currently building HireCode - a technical assessment
+          platform for companies to hire top developer talent.
         </Typography>
 
         <Box sx={{ display: "flex", gap: 3, mt: 4 }}>

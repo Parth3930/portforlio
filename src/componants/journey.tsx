@@ -4,38 +4,38 @@ import { itim } from "./fonts/fonts";
 
 const milestones = [
   {
+    year: "2026",
+    title: "HIRECODE DEVELOPMENT",
+    description:
+      "Currently building HireCode, a technical assessment platform for developers, as part of Avina's product suite. Working on advanced features and scaling infrastructure.",
+    color: "#FF6B6B",
+  },
+  {
     year: "2025",
     title: "YAPSTER SCALE-UP",
     description:
       "Developing the complete backend using Rust (Axum, Rocket) and mobile app with Flutter. Implementing Kubernetes auto-scaling on Google Cloud.",
-    color: "#FF6B6B",
+    color: "#FFD100",
   },
   {
     year: "2024",
     title: "CTO @ AVINA",
     description:
-      "Leading technology decisions across the stack for Avina's products, including the Financial Marketplace and Yapster. Architecting full-stack systems and DevOps pipelines.",
-    color: "#FFD100",
+      "Leading technology decisions across the stack for Avina's products, including Yapster and HireCode. Architecting full-stack systems and DevOps pipelines.",
+    color: "#4ECDC4",
   },
   {
     year: "2024",
     title: "REALM & PULSEVOTE",
     description:
       "Launched Realm, a serverless P2P AR collaboration board, and PulseVote, an AI-powered Discord agent using Mistral.",
-    color: "#4ECDC4",
-  },
-  {
-    year: "2023",
-    title: "HIRECODE & AVINA MVP",
-    description:
-      "Started development of HireCode for technical assessments and the initial MVP for Avina Money using Next.js and Supabase.",
     color: "#45B7D1",
   },
   {
-    year: "PRESENT",
-    title: "ACADEMIC JOURNEY",
+    year: "2023",
+    title: "AVINA MVP",
     description:
-      "Pursuing B.Tech in Computer Science at Amritsar Group of Colleges. Currently in the fourth semester.",
+      "Started development of Avina's initial MVP using Next.js and Supabase, laying the foundation for products like Yapster and HireCode.",
     color: "#9b59b6",
   },
 ];

@@ -159,8 +159,8 @@ export default function Footer() {
             sx={{
               display: "flex",
               flexDirection: { xs: "column", md: "row" },
-              justifyContent: "space-between",
               alignItems: "center",
+              justifyContent: "center",
               gap: 2,
             }}
           >
@@ -178,29 +178,6 @@ export default function Footer() {
             >
               MADE BY PARTH SHARMA © 2026
             </Typography>
-
-            <Box sx={{ display: "flex", gap: 3 }}>
-              <Typography
-                className={itim.className}
-                sx={{
-                  fontWeight: 900,
-                  "&:hover": { color: "#FF6B6B" },
-                  cursor: "pointer",
-                }}
-              >
-                PRIVACY?
-              </Typography>
-              <Typography
-                className={itim.className}
-                sx={{
-                  fontWeight: 900,
-                  "&:hover": { color: "#4ECDC4" },
-                  cursor: "pointer",
-                }}
-              >
-                TERMS?
-              </Typography>
-            </Box>
           </Box>
         </Container>
 
