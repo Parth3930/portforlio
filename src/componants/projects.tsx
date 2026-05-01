@@ -23,15 +23,6 @@ const projects = [
     tag: "LIVE NOW",
   },
   {
-    title: "Avina Marketplace",
-    description:
-      "Financial marketplace platform integrating Gemini AI to fetch banking data and recommend financial products in real-time.",
-    tech: ["Next.js", "TypeScript", "Supabase", "Gemini AI", "Material UI"],
-    link: "https://avina.money/",
-    color: "#4ECDC4",
-    tag: "FINTECH",
-  },
-  {
     title: "HireCode",
     description:
       "Interactive coding platform for technical assessments, featuring challenges, refactoring tasks, and real-time leaderboards.",
@@ -39,6 +30,15 @@ const projects = [
     link: "https://hirecode.live/",
     color: "#45B7D1",
     tag: "WEB APP",
+  },
+  {
+    title: "Avina Marketplace",
+    description:
+      "Financial marketplace platform integrating Gemini AI to fetch banking data and recommend financial products in real-time.",
+    tech: ["Next.js", "TypeScript", "Supabase", "Gemini AI", "Material UI"],
+    link: "https://avina.money/",
+    color: "#4ECDC4",
+    tag: "FINTECH",
   },
   {
     title: "Realm",
@@ -53,11 +53,21 @@ const projects = [
   {
     title: "PulseVote",
     description:
-      "Discord AI agent using Mistral, providing advanced Discord features and automated community engagement capabilities.",
-    tech: ["Discord.js", "Mistral AI", "Node.js", "TypeScript"],
-    github: "https://github.com/Parth3930",
+      "A real-time polling application designed for interactive community engagement and instant feedback.",
+    tech: ["Next.js", "TypeScript", "Pusher", "Tailwind CSS", "PostgreSQL"],
+    link: "https://pulse-vote.vercel.app/",
+    github: "https://github.com/Parth3930/PulseVote",
     color: "#9b59b6",
-    tag: "AI AGENT",
+    tag: "POLL APP",
+  },
+  {
+    title: "Recursive Thinking MCP",
+    description:
+      "A Model Context Protocol server that enables LLMs to perform structured recursive analysis and multi-step reasoning.",
+    tech: ["MCP", "TypeScript", "LLM", "Node.js"],
+    github: "https://github.com/Parth3930/recursive-thinking-mcp",
+    color: "#f1c40f",
+    tag: "SKILL",
   },
   {
     title: "Rusty-OS",
@@ -384,7 +394,9 @@ const Projects = () => {
                   xs: "1 / -1",
                   sm: isFirst
                     ? "1 / span " + (row % 2 === 0 ? 3 : 2)
-                    : (row % 2 === 0 ? "4 / span 2" : "3 / span 3"),
+                    : row % 2 === 0
+                      ? "4 / span 2"
+                      : "3 / span 3",
                 },
                 transition: "transform 0.35s cubic-bezier(.4,2,.6,1)",
                 "&:hover": {
