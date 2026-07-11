@@ -2,41 +2,46 @@ import { Box, Typography, Container } from "@mui/material";
 import { motion } from "framer-motion";
 import { itim } from "./fonts/fonts";
 
+const getAcademicYear = () => {
+  const currentYear = new Date().getFullYear();
+  const currentMonth = new Date().getMonth();
+  let diff = currentYear - 2024;
+  if (currentMonth >= 6) diff += 1; // Academic year rolls over in July
+  
+  if (diff <= 1) return "1st Year";
+  if (diff === 2) return "2nd Year";
+  if (diff === 3) return "3rd Year";
+  if (diff === 4) return "4th Year";
+  return "Graduated";
+};
+
 const milestones = [
   {
     year: "2026",
-    title: "HIRECODE DEVELOPMENT",
+    title: "HIRECODE",
     description:
-      "Currently building HireCode, a technical assessment platform for developers, as part of Avina's product suite. Working on advanced features and scaling infrastructure.",
+      "Building a live SaaS platform for technical hiring with interactive coding challenges, refactoring tasks, and real-time leaderboards. Designed multi-tenant PostgreSQL schema and REST API layer.",
     color: "#FF6B6B",
   },
   {
     year: "2025",
-    title: "YAPSTER SCALE-UP",
+    title: "YAPSTER",
     description:
-      "Developing the complete backend using Rust (Axum, Rocket) and mobile app with Flutter. Implementing Kubernetes auto-scaling on Google Cloud.",
+      "Architected and built production-grade backend in Rust (Axum). Shipped cross-platform mobile app in Flutter. Deployed to Azure with Kubernetes for container orchestration and auto-scaling.",
     color: "#FFD100",
   },
   {
     year: "2024",
-    title: "CTO @ AVINA",
+    title: "CO-FOUNDER & CTO",
     description:
-      "Leading technology decisions across the stack for Avina's products, including Yapster and HireCode. Architecting full-stack systems and DevOps pipelines.",
+      "Co-founder & CTO at Yapster & HireCode. Leading technology decisions, architecting full-stack systems, and managing CI/CD pipelines.",
     color: "#4ECDC4",
   },
   {
-    year: "2024",
-    title: "REALM & PULSEVOTE",
-    description:
-      "Launched Realm, a serverless P2P AR collaboration board, and PulseVote, an AI-powered Discord agent using Mistral.",
+    year: "Ongoing",
+    title: "B.TECH CS",
+    description: `Pursuing B.Tech in Computer Science at Amritsar Group of Colleges (${getAcademicYear()}).`,
     color: "#45B7D1",
-  },
-  {
-    year: "2023",
-    title: "AVINA MVP",
-    description:
-      "Started development of Avina's initial MVP using Next.js and Supabase, laying the foundation for products like Yapster and HireCode.",
-    color: "#9b59b6",
   },
 ];
 

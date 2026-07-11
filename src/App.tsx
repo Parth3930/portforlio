@@ -18,7 +18,7 @@ export default function App() {
   const metaTags = {
     title: "Parth Sharma - Cool Portfolio",
     description:
-      "CTO @ Avina, building HireCode - a technical assessment platform for companies to hire top developer talent.",
+      "Co-founder & CTO Yapster & HireCode. Building live SaaS platforms and high-performance backends.",
   };
 
   useEffect(() => {
@@ -115,25 +115,6 @@ export default function App() {
           >
             HEY, I&apos;M <span style={{ color: "#FF6B6B" }}>PARTH!</span>
           </Typography>
-
-          <motion.div
-            initial={{ rotate: -5, x: -50, opacity: 0 }}
-            animate={{ rotate: -5, x: 0, opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            style={{
-              position: "absolute",
-              top: -40,
-              left: -20,
-              background: "#4ECDC4",
-              border: "3px solid #000",
-              padding: "5px 15px",
-              boxShadow: "4px 4px 0px #000",
-            }}
-          >
-            <Typography sx={{ fontWeight: 900, color: "#000" }}>
-              WANTED: COOL DEV
-            </Typography>
-          </motion.div>
         </Box>
 
         <Typography
@@ -151,9 +132,7 @@ export default function App() {
             transform: "rotate(1deg)",
           }}
         >
-          CTO @ Avina, architecting full-stack systems and high-performance
-          backends. Currently building HireCode - a technical assessment
-          platform for companies to hire top developer talent.
+          Co-founder & CTO at Yapster & HireCode. Building a live SaaS platform for technical hiring and architecting high-performance backends.
         </Typography>
 
         <Box sx={{ display: "flex", gap: 3, mt: 4 }}>

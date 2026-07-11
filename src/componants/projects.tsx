@@ -14,69 +14,65 @@ import React, { useRef } from "react";
 
 const projects = [
   {
-    title: "Yapster",
-    description:
-      "A social media platform for Gen Z focused on authentic connections. Built with a high-performance Rust backend and cross-platform Flutter mobile app.",
-    tech: ["Flutter", "Rust", "Axum", "WebSocket", "PostgreSQL", "Kubernetes"],
-    link: "https://play.google.com/store/apps/details?id=com.yapster.avina",
-    color: "#FF6B6B",
-    tag: "LIVE NOW",
-  },
-  {
     title: "HireCode",
     description:
-      "Interactive coding platform for technical assessments, featuring challenges, refactoring tasks, and real-time leaderboards.",
+      "Live SaaS platform for technical hiring with interactive coding challenges, refactoring tasks, and real-time leaderboards. Multi-tenant PostgreSQL schema and REST API layer.",
     tech: ["React", "TypeScript", "Node.js", "PostgreSQL"],
     link: "https://hirecode.live/",
     color: "#45B7D1",
-    tag: "WEB APP",
+    tag: "LIVE SAAS",
   },
   {
-    title: "Avina Marketplace",
+    title: "Yapster",
     description:
-      "Financial marketplace platform integrating Gemini AI to fetch banking data and recommend financial products in real-time.",
-    tech: ["Next.js", "TypeScript", "Supabase", "Gemini AI", "Material UI"],
-    link: "https://avina.money/",
+      "Social App with a production-grade backend in Rust (Axum) and a cross-platform mobile app in Flutter (Riverpod). Deployed to Azure with Kubernetes.",
+    tech: ["Rust", "Axum", "Flutter", "Kubernetes", "Azure", "CI/CD"],
+    link: "https://play.google.com/store/apps/details?id=com.yapster.avina",
+    color: "#FF6B6B",
+    tag: "MOBILE APP",
+  },
+  {
+    title: "Threadloom",
+    description:
+      "Full-stack Rust framework for building WASM-powered web apps. UI written with a JSX-like `view!` macro, fine-grained reactivity, and hot-reload dev server.",
+    tech: ["Rust", "WASM", "Actix", "Framework"],
     color: "#4ECDC4",
-    tag: "FINTECH",
+    tag: "FRAMEWORK",
+  },
+  {
+    title: "Pern",
+    description:
+      "Offline-first local AI desktop & mobile assistant. Runs GGUF models locally via embedded llama-server with zero external API calls and persistent memory.",
+    tech: ["Tauri", "React", "TypeScript", "Rust", "Tokio"],
+    color: "#FFD100",
+    tag: "AI ASSISTANT",
+  },
+  {
+    title: "rust-claude-nano",
+    description:
+      "Full Rust reimplementation of Claude Code (~6,200 lines). Supports 10+ LLM providers via a trait-based system, MCP integration, and sub-agents.",
+    tech: ["Rust", "AI & Agents", "MCP", "LLM"],
+    color: "#e67e22",
+    tag: "SYSTEMS RUST",
+  },
+  {
+    title: "recursive-thinking-mcp",
+    description:
+      "Published MCP server that forces AI agents through a structured 5-phase reasoning loop, cutting token usage ~70% via compression.",
+    tech: ["MCP", "Node.js", "AI Agents"],
+    github: "https://github.com/Parth3930/recursive-thinking-mcp",
+    color: "#f1c40f",
+    tag: "NPM PACKAGE",
   },
   {
     title: "Realm",
     description:
-      "P2P serverless AR Board for real-time gamified collaboration with friends. Built for interactive spatial experiences.",
-    tech: ["Astro", "WebRTC", "AR", "P2P"],
+      "P2P serverless AR collaboration platform for real-time gamified interaction. Low-latency WebRTC communication with no central server required.",
+    tech: ["Astro", "WebRTC", "P2P", "AR"],
     link: "https://realim.vercel.app/",
     github: "https://github.com/Parth3930/Realim",
-    color: "#FFD100",
-    tag: "EXPERIMENT",
-  },
-  {
-    title: "PulseVote",
-    description:
-      "A real-time polling application designed for interactive community engagement and instant feedback.",
-    tech: ["Next.js", "TypeScript", "Pusher", "Tailwind CSS", "PostgreSQL"],
-    link: "https://pulse-vote.vercel.app/",
-    github: "https://github.com/Parth3930/PulseVote",
     color: "#9b59b6",
-    tag: "POLL APP",
-  },
-  {
-    title: "Recursive Thinking MCP",
-    description:
-      "A Model Context Protocol server that enables LLMs to perform structured recursive analysis and multi-step reasoning.",
-    tech: ["MCP", "TypeScript", "LLM", "Node.js"],
-    github: "https://github.com/Parth3930/recursive-thinking-mcp",
-    color: "#f1c40f",
-    tag: "SKILL",
-  },
-  {
-    title: "Rusty-OS",
-    description:
-      "Minimal operating system written from scratch in Rust, exploring low-level systems programming and kernel development.",
-    tech: ["Rust", "Assembly", "Kernel"],
-    github: "https://github.com/Parth3930/Rusty-OS",
-    color: "#e67e22",
-    tag: "SYSTEMS",
+    tag: "EXPERIMENT",
   },
 ];
 

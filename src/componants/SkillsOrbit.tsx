@@ -7,6 +7,7 @@ import {
   FaReact,
   FaDocker,
   FaRust,
+  FaPython,
 } from "react-icons/fa";
 import {
   SiTailwindcss,
@@ -28,6 +29,7 @@ import {
   SiExpress,
   SiMui,
   SiFramer,
+  SiOpenai,
 } from "react-icons/si";
 
 const skills = [
@@ -55,6 +57,8 @@ const skills = [
   { id: "framer", Icon: SiFramer, color: "#0055FF" },
   { id: "tailwind", Icon: SiTailwindcss, color: "#06B6D4" },
   { id: "js", Icon: FaJs, color: "#F7DF1E" },
+  { id: "python", Icon: FaPython, color: "#3776AB" },
+  { id: "openai", Icon: SiOpenai, color: "#412991" },
 ];
 
 export default function SkillsOrbit() {
